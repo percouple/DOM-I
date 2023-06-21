@@ -39,4 +39,68 @@ const siteContent = { // DO NOT CHANGE THIS OBJECT
   },
 };
 
-console.log('project wired!')
+// H1/BUTTON
+const ctaText = document.querySelector('.cta-text');
+ctaText.querySelector('h1').textContent = siteContent.cta["h1"];
+ctaText.querySelector('button').textContent = siteContent.cta["button"];
+
+// MAIN CONTENT
+const tc = document.querySelectorAll(".text-content")
+console.log(tc);
+let tch4 = tc[0].querySelector("h4")
+let tcp = tc[0].querySelector("p");
+tch4.textContent = siteContent["main-content"]["features-h4"];
+tcp.textContent = siteContent["main-content"]["features-content"];
+tch4 = tc[1].querySelector("h4")
+tcp = tc[1].querySelector("p")
+tch4.textContent = siteContent["main-content"]["about-h4"];
+tcp.textContent = siteContent["main-content"]["about-content"];
+tch4 = tc[2].querySelector("h4")
+tcp = tc[2].querySelector("p")
+tch4.textContent = siteContent["main-content"]["services-h4"];
+tcp.textContent = siteContent["main-content"]["services-content"];
+tch4 = tc[3].querySelector("h4")
+tcp = tc[3].querySelector("p")
+tch4.textContent = siteContent["main-content"]["product-h4"];
+tcp.textContent = siteContent["main-content"]["product-content"];
+tch4 = tc[4].querySelector("h4")
+tcp = tc[4].querySelector("p")
+tch4.textContent = siteContent["main-content"]["vision-h4"];
+tcp.textContent = siteContent["main-content"]["vision-content"];
+
+
+// FOOTER
+let footerI = document.querySelector('footer');
+footerI.textContent = "Copyright Great Idea! 2021";
+footerI.setAttribute('class', "bold");
+
+// CONTACT INFO AT THE BOTTOM
+let contactInfoHeader = document.querySelector(".contact");
+let contactObjValues = Object.values(siteContent.contact)
+for (let i = 0; i < contactInfoHeader.children.length; i++) {
+Array.from(contactInfoHeader.children)[i].textContent = contactObjValues[i];
+}
+
+// 1st IMAGE
+const img1 = document.querySelector('#logo-img');
+img1.setAttribute("src", siteContent.images["logo-img"]);
+
+// 2nd IMAGE
+const img2 = document.querySelector('#cta-img');
+img2.setAttribute("src", siteContent.images["cta-img"]);
+
+// 3rd IMAGE
+const img3 = document.querySelector("#middle-img");
+img3.setAttribute('src', "http://localhost:9000/img/accent.png");
+
+// BOTTOM CONTENT PARAGRAPHS AND HEADERS
+const bottomContentDiv = document.querySelector('.bottom-content')
+let bottomContentIndividual = bottomContentDiv.querySelector('.text-content')
+console.log(bottomContentIndividual)
+
+// NAV ANCHOR
+const navAnchors = document.querySelectorAll('a');
+navAnchors.forEach((element, index) => {
+  element.setAttribute('class', "italic");
+  element.textContent = siteContent.nav[`nav-item-${index + 1}`];
+})
